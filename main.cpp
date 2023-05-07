@@ -7,9 +7,10 @@ int main() {
     state s1, s2, s3, s4, s5, s6, s7, s8, s9;
     
     // Add transitions between states
+    s1.addState(' ', &s1);
     s1.addState('<', &s2);
-    s2.addState('a', &s3);
 
+    s2.addState('a', &s3);
     s2.addState('/', &s6);
 
     s3.addState('p', &s4);
@@ -25,7 +26,7 @@ int main() {
     s9.writeChar = " bit-stream-false \n";
     
     // Test the DFA
-    string input = "<app></app>";
+    string input = "<app>     </app>";
     cout << "Input: " << input << endl;
     s1.transition(&s1, input);
     
